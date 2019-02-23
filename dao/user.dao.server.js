@@ -3,8 +3,7 @@ let users = [
     { username: 'ada', _id :234}
 ]
 
-module.exports =() =>
-{
+
     createUser= user =>
         users.push(user)
 
@@ -16,10 +15,10 @@ module.exports =() =>
     findUserById = userId =>
         users.find( user => user._id === parseInt(userId))
 
-
-    return{
+module.exports  =
+{
         createUser,
         findAllUsers,
         findUserById
-    }
+
 }
