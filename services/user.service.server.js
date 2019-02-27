@@ -17,6 +17,10 @@ module.exports = app => {
     findUserById = (req, res) =>
         res.json(userDao.findUserById(req.params['userId']))
 
+    deleteUser = (req,res) =>
+        res.json(userDao.deleteUser(req.params.userId))
+
+    app.delete('/api/user/:userId',deleteUser);
     app.get('/api/user/:userId', findUserById);
     app.get('/api/users', findAllUsers);
     app.post('/api/users', createUser);
