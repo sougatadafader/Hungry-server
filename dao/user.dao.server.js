@@ -13,6 +13,18 @@ let users = [
         users.push(user)
     }
 
+    updateUser= (userId, newUser) =>
+    {
+        const v = parseInt(userId)
+        const index = users.findIndex(user => user._id === v);
+        console.log(index)
+
+        newUser._id = v;
+        users[index] = newUser;
+
+        return users;
+    }
+
     deleteUser= userId =>{
         var i;
         num = parseInt(userId)
@@ -20,12 +32,10 @@ let users = [
         for( i=0; i<users.length;i++)
         {
             if(users[i]._id === num ){
-                users.splice(i,1);
+                    users.splice(i,1);
                 break;
             }
-
         }
-
         return users;
     }
 
@@ -40,6 +50,7 @@ let users = [
 module.exports  =
 {
         createUser,
+        updateUser,
         deleteUser,
         findAllUsers,
         findUserById

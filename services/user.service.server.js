@@ -20,6 +20,12 @@ module.exports = app => {
     deleteUser = (req,res) =>
         res.json(userDao.deleteUser(req.params.userId))
 
+    updateUser=(req,res) =>
+    {
+        res.json(userDao.updateUser(req.params.userId, req.body))
+    }
+
+    app.put('/api/user/:userId',updateUser)
     app.delete('/api/user/:userId',deleteUser);
     app.get('/api/user/:userId', findUserById);
     app.get('/api/users', findAllUsers);
